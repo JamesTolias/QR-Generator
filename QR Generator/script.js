@@ -5,12 +5,10 @@ qrImg = wrapper.querySelector('.qr-code img');
 
 generateBtn.addEventListener('click', () => {
     let qrValue = qrInput.value;
-    if(!qrValue) return; // if the input is empty then return from here
+    if(!qrValue) return;
     generateBtn.innerText = 'Generating QR Code...';
-    // getting a QR code of user entered value using the qrserver
-    // api and passing the api returned img src to qrImg
     qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${qrValue}`;
-    qrImg.addEventListener('load', () => { // once QR code is loaded
+    qrImg.addEventListener('load', () => {
         wrapper.classList.add('active');
         generateBtn.innerText = 'Generate QR Code';
     });
